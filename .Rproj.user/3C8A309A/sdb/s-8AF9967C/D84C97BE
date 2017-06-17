@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1497548660177.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "D84C97BE",
+    "lastKnownWriteTime" : 3833180308419998817,
+    "last_content_update" : 1497548660177,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "AF864CAE",
+        "caption" : "gender_submission",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=gender_submission&cache_key=AF864CAE",
+        "displayedObservations" : 418,
+        "environment" : "",
+        "object" : "gender_submission",
+        "preview" : 0,
+        "totalObservations" : 418,
+        "variables" : 2
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

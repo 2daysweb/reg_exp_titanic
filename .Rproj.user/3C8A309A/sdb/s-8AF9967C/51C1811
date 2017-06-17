@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#Learning string maniuplation (regexp) with Titanic Data, using tidyverse & stringr\n#Never attempted to understand Regular Expressions before...here we go.\n\n\n\nlibrary(tidyverse)\n\nlibrary(stringr)\n\n\nwriteLines(train$Name)\n\nfirst_10_names <- str_c(train$Name[1:10])\n\nfirst_10_names\n\nclass(first_10_names)\n\n\n#Subsetting strings in Base R with str_sub()\n\nstr_sub(first_10_names, 1, 5)\n\nb <- paste(first_10_names, sep=\"_\")\n\na <- paste(first_10_names, collapse=\"_\")\n\n#Let's start by isolating the passenger names into a character vector\n\npnames <- str_c(train$Name[1:891])\n\nstr_view(pnames, \"Mr\")\n\n#Got two errors in LoadNameSpace...apparently didn't have htmltools, htmlwidgets, so downloaded them...and we're good.\n\ninstall.packages(\"htmltools\")\n\ninstall.packages(\"htmlwidgets\")\n\nlibrary(htmlwidgets)\n\nlibrary(htmltools)\n\n#Goal, create a new column, \"Title,\" which grabs Title from Name.\n\n#We can pipe the Name column through a function which grabs the Title and stores in an empty vector\n\nstr_view(pnames, \".z.\")\n\n\nstr_view(pnames, \"Mr\")\n\na <- \"casa d' mama\"\n\n#Learned that apostraphes\n\nc<- 'casa 'd mama''\n\nb<- \"casa 'd mama\" \n\ne<- 'casa \\'d mama'\n\ne\n\n#To create regular expression in strings, need double \\\\ (makes sense, since string escape is one backslash)\n\n#Since all titles are followed by a period, we can now at least get a hold of the \"end\" of the chunk we're looking for \n\nstr_view(pnames, \"\\\\.\")\n\n#If you begin wtih power (^) you end with money ($)\n\nstr_view(pnames, \"\\\\.$\")\n\n\nstr_count(pnames, \"Mr\")\n\nlength(pnames)\n\n\n\n#Create a column with the Titles of passengers\n\n#We need to create a new dataframe, called \"Title\n\n#We need to extract the titles in the Names column and push them into the Title data frame\n\n#We can do the above by creating a dataframe of all titles\n\n#Then, we can subset the \"Names\" column to extract the \"Title_Matches\"\n\n?str_subset\n?str_extract_all\n?str_split\n\nstr_split(train$Name, \" \")\n\nptitles <- c(\"Mr.\", \"Miss.\", \"Dr.\",\"Master.\", \"Rev.\", \"Jonkheer.\", \"Major.\", \"Mme.\", \"Don.\", \"Dona.\")\n \npnames[1]\n\n?gsub\n\nstr_split(\"Brown, Mr. James\", \"?=.\")\n\n# Grab title from passenger names\nTitle <- gsub('(.*, )|(\\\\..*)', '', train$Name)\n\n?str_extract\n\n#Title <- str_extract(train$Name, \"[^,.*][A-Z.*][a-z.*].?[\\\\.+]\")\n\nTitle <- str_extract(train$Name, \"[a-zA-Z]+\\\\.\")\n\ntrain$Title <- str_extract(train$Name, \"[a-zA-Z]+\\\\.\")\n\ntrain$Title\n\na <- str_extract(train$Name, \"[a-zA-Z]+,\")\n\n\ntrain$Last_Name <- str_extract(train$Name, \"[a-zA-Z]+,\")\n\ntrain$Last_Name\n",
+    "created" : 1497548728528.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1190505593",
+    "id" : "51C1811",
+    "lastKnownWriteTime" : 1497741107,
+    "last_content_update" : 1497741108074,
+    "path" : "~/reg_exp_titanic/reg_exp_titanic_1.R",
+    "project_path" : "reg_exp_titanic_1.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
